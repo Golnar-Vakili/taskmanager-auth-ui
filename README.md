@@ -1,3 +1,20 @@
+## Demo
+
+### Animated Login Page
+![Login Demo](screenshots/login-demo.gif)
+
+### Login Page
+![Login Page](screenshots/login.png)
+
+### Register Page
+![Register Page](screenshots/register.png)
+
+
+
+
+
+
+
 # ✅ TaskManager
 
 Ein einfacher Task Manager als Spring Boot Projekt mit Login & Registrierung.
