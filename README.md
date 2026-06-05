@@ -1,19 +1,18 @@
 ## Demo
 
 ### Animated Login Page
-![Login Demo](screenshots/login-demo.gif)
+
+![Animated Login Demo](screenshots/login-demo.gif)
+
+## Screenshots
 
 ### Login Page
+
 ![Login Page](screenshots/login.png)
 
 ### Register Page
+
 ![Register Page](screenshots/register.png)
-
-
-
-
-
-
 
 # ✅ TaskManager
 
