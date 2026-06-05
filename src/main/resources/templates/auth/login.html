@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login – TaskManager</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+
+<body class="tm-login-page">
+
+<main class="tm-login-shell">
+
+    <div class="tm-bg-orb tm-bg-orb-one"></div>
+    <div class="tm-bg-orb tm-bg-orb-two"></div>
+    <div class="tm-bg-orb tm-bg-orb-three"></div>
+
+    <section class="tm-login-hero" aria-hidden="true">
+
+        <div class="tm-product-preview">
+            <div class="tm-preview-topbar">
+                <div class="tm-window-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="tm-preview-search"></div>
+            </div>
+
+            <div class="tm-preview-body">
+                <div class="tm-preview-sidebar">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="tm-preview-main">
+                    <div class="tm-preview-header">
+                        <div>
+                            <strong>Heute</strong>
+                            <small>12 Aufgaben aktiv</small>
+                        </div>
+                        <div class="tm-preview-badge">Live</div>
+                    </div>
+
+                    <div class="tm-kpi-row">
+                        <div class="tm-kpi-card">
+                            <span></span>
+                            <strong>86%</strong>
+                            <small>Fortschritt</small>
+                        </div>
+                        <div class="tm-kpi-card">
+                            <span></span>
+                            <strong>24</strong>
+                            <small>Tasks</small>
+                        </div>
+                    </div>
+
+                    <div class="tm-task-list">
+                        <div class="tm-task-item done">
+                            <i></i>
+                            <div>
+                                <strong>Projektstatus prüfen</strong>
+                                <span></span>
+                            </div>
+                        </div>
+
+                        <div class="tm-task-item">
+                            <i></i>
+                            <div>
+                                <strong>Team-Aufgaben planen</strong>
+                                <span></span>
+                            </div>
+                        </div>
+
+                        <div class="tm-task-item">
+                            <i></i>
+                            <div>
+                                <strong>Sicher anmelden</strong>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tm-preview-glow"></div>
+        </div>
+
+        <div class="tm-floating-security">
+            <div class="tm-shield">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2 20 5.5v6.2c0 5-3.4 9.5-8 10.8-4.6-1.3-8-5.8-8-10.8V5.5L12 2Zm3.7 7.4a1 1 0 0 0-1.4-1.4l-3.4 3.4-1.2-1.2a1 1 0 0 0-1.4 1.4l1.9 1.9a1 1 0 0 0 1.4 0l4.1-4.1Z"/>
+                </svg>
+            </div>
+            <div>
+                <strong>Secure Login</strong>
+                <span>Geschützter Zugriff</span>
+            </div>
+        </div>
+
+        <div class="tm-floating-progress">
+            <div class="tm-progress-ring">
+                <span>92%</span>
+            </div>
+            <div>
+                <strong>Produktivität</strong>
+                <span>Heute sehr gut</span>
+            </div>
+        </div>
+
+        <div class="tm-floating-checklist">
+            <strong>Quick Tasks</strong>
+            <span><i></i> Planung aktualisiert</span>
+            <span><i></i> Team synchronisiert</span>
+            <span><i></i> Login geschützt</span>
+        </div>
+
+    </section>
+
+    <section class="tm-auth-card">
+        <div class="tm-brand">
+            <div class="tm-brand-logo">✓</div>
+            <div>
+                <strong>TaskManager</strong>
+                <span>Sicherer Arbeitsbereich</span>
+            </div>
+        </div>
+
+        <div class="tm-auth-heading">
+            <p>Willkommen zurück</p>
+            <h1>Einloggen</h1>
+            <span>Melde dich an und starte deinen produktiven Tag.</span>
+        </div>
+
+        <div th:if="${error}" class="tm-alert tm-alert-error" th:text="${error}"></div>
+        <div th:if="${success}" class="tm-alert tm-alert-success" th:text="${success}"></div>
+        <div th:if="${logout}" class="tm-alert tm-alert-info" th:text="${logout}"></div>
+
+        <form class="tm-login-form" th:action="@{/auth/login}" method="post">
+            <div class="tm-form-group">
+                <label for="username">Benutzername</label>
+                <div class="tm-input-wrap">
+                    <span class="tm-input-svg">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5Zm0 2c-3.33 0-8 1.67-8 5v1.2c0 .44.36.8.8.8h14.4c.44 0 .8-.36.8-.8V19c0-3.33-4.67-5-8-5Z"/>
+                        </svg>
+                    </span>
+                    <input id="username"
+                           name="username"
+                           type="text"
+                           placeholder="dein_username"
+                           required
+                           autofocus/>
+                </div>
+            </div>
+
+            <div class="tm-form-group">
+                <label for="password">Passwort</label>
+                <div class="tm-input-wrap">
+                    <span class="tm-input-svg">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M17 9V7A5 5 0 0 0 7 7v2H6c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-1Zm-8 0V7a3 3 0 0 1 6 0v2H9Zm3 8.2a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Z"/>
+                        </svg>
+                    </span>
+                    <input id="password"
+                           name="password"
+                           type="password"
+                           placeholder="••••••••"
+                           required/>
+                </div>
+            </div>
+
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+            <button type="submit" class="tm-login-button">
+                <span>Einloggen</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M13.2 5.4a1 1 0 0 1 1.4 0l5.9 5.9a1 1 0 0 1 0 1.4l-5.9 5.9a1 1 0 1 1-1.4-1.4l4.2-4.2H4a1 1 0 1 1 0-2h13.4l-4.2-4.2a1 1 0 0 1 0-1.4Z"/>
+                </svg>
+            </button>
+        </form>
+
+        <p class="tm-auth-switch">
+            Noch kein Konto?
+            <a th:href="@{/auth/register}">Jetzt registrieren</a>
+        </p>
+    </section>
+
+</main>
+
+</body>
+</html>
